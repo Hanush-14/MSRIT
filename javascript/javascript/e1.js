@@ -415,21 +415,40 @@ function count(){
 */
 // FOR moveTo and moveBy function
     /*
-        <script>
+<body>
+    <script src="e1.js"></script>
+    <button onclick="MoveToWindow()">MoveTo</button>
+    <button onclick="MoveByWindow()">MoveBy</button>
+
+    <script>
+        let myWindow;
         function MoveToWindow()
         {
-            window.moveTo(100,200);
-            console.log("MoveTo Done");
+            myWindow = window.open("", "", "width=100, height=100");
         }
         function MoveByWindow()
         {
-            window.moveBy(-100,-50);
-            console.log("MoveBy Done");
+            myWindow.resizeBy(250,250);
+
         }
     </script>
+</body>
+*/
+//TO CHANGE THE TEXT COLOR IN HTML
+/*
+<body>
+    <p id="ID1">Change the color of paragraph</p>
+    <button onclick="changeColor()">Change Color</button>
+    <script>
+        function changeColor()
+        {
+            document.getElementById("ID1").style.color="blue";
+        }
+    </script>
+</body>
 */
 //
+/*
 
-//
-
+*/
 //

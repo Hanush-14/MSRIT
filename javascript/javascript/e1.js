@@ -398,7 +398,36 @@ function count(){
     document.getElementById("result").innerHTML="Heading 2 sum is "+h2sum+"Heading 3 sum is "+h3sum
 }
 */
-
+------------------------------------------------------
+/*    HTML CODE
+    <script>
+        function MoveToWindow()
+        {
+            window.resizeBy(100,200);
+            console.log("resize By");
+        }
+        function MoveByWindow()
+        {
+            window.resizeTo(-100,-50);
+            console.log("resize To");
+        }
+    </script>
+*/
+// FOR moveTo and moveBy function
+    /*
+        <script>
+        function MoveToWindow()
+        {
+            window.moveTo(100,200);
+            console.log("MoveTo Done");
+        }
+        function MoveByWindow()
+        {
+            window.moveBy(-100,-50);
+            console.log("MoveBy Done");
+        }
+    </script>
+*/
 //
 
 //

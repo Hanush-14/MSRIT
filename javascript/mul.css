@@ -1,0 +1,14 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.hover{
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+div.hover.hover
+{
+    color: red;
+    font-size: 36px;
+}

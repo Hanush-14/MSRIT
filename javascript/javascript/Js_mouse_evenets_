@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <!--<input type="button" id="myButton" value ="click">-->
+    <!--<div id="container">-->
+    <input type="text" id="fname" oninput="reverseText()">
+    <!--<p id="fname">This is a paragraph</p>-->
+    <!--</div>-->
+    <!--Using CSS-->
+    
+    <!--<button onclick="document.body.style.backgroundColor='lightblue'">Change Background</button>-->
+    <!--Ondocus-->
+    <!--<input type="text" onfocus="this.value='You clicked me!'"/>-->
+    <!--<h1 onclick="this.style.color='red'">Click on this text !</h1>-->
+    
+    <script>
+        /*
+        let var1=document.createElement("p");
+        var1.innerHTML = "This is a newly created paragraph. ";
+        //Add element to the container
+        container.appendChild(var1);
+        let var2 = document.getElementById("para");
+        container.removeChild(var2);
+        let var3 = document.createElement("h2");
+        var3.innerHTML = "This is a replaced heading ";
+        container.replaceChild(var3,var1);
+        */
+       //document.getElementById("myBtn").addEventListener("click",function() {alert("Button Clicked!");});
+       
+       /*document.getElementById("myButton").onclick=function(){
+        alert("Buttton Clicked via DOM !");
+       }
+    */
+    //function changeStyle(element){ element.style.fontSize="40px";}outide script inside body add this <h1 onclick="changeStyle(this)">Click on this</h1>
+
+    //document.getElementById("hoverBox").onmouseover=function() { this.style.backgroundColor = "lightblue";};//<button onclick="document.body.style.backgroundColor='lightblue'">Change Background</button>
+    //document.getElementById("hoverBox").onmouseover=function() { this.style.backgroundColor = "green";};//<p id="hoverBox">This is a paragraph</p>
+
+    //document.getElementById("clickBox").onmousedown=function() { this.style.backgroundColor="red"};//same <p id="clickBox">This is a paragraph</p>  
+    //document.getElementById("clickBox").onmouseup=function() { this.style.backgroundColor="green"};//same <p id="clickBox">This is a paragraph</p>  
+
+    /*
+    function reverseText(){
+        let x=document.getElementById("fname");
+        x.value=x.value.split("").reverse().join("");}//<input type="text" id="fname" oninput="reverseText()">
+    */
+    </script>
+</body>
+</html>                                 

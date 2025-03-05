@@ -8,18 +8,46 @@
 <body> 
     <!--<input type="button" id="myButton" value ="click">-->
     <!--<div id="container">-->
-    <input type="text" id="fname" oninput="reverseText()">
+    <!--<input type="text" id="fname" oninput="reverseText()">-->
     <!--<p id="fname">This is a paragraph</p>-->
     <!--</div>-->
+    <!-------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------EMAIL VALIDATION------------------------------------------------>
+    <!--<input type = "email"id="email">
+    <button onclick = "validateEmail()">Submit</button>-->
+    <!-------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------NUMBER VALIDATION ---------------------------------------------->
+    <!--<input type="text" id="age">
+    <button onclick="validateNumber()">Submit</button>
+    -->
+    <!-------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------PASSWORD STRENGTH VALIDATION --------------------------------------->
+    <!--
+    <input type="password" id="password">
+    <button onclick="validatePassword()">Submit</button>
+    -->
+    <!------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------REAL-TIME VALIDATION WITH ONINPUT EVENT------------------------------->
+    <!-------------------------------<input type="text" id="username" oninput="checkLength()">--------------------->
+    <!------------------------------------------------------------------------------------------------------------->
+
     <!--Using CSS-->
-    
     <!--<button onclick="document.body.style.backgroundColor='lightblue'">Change Background</button>-->
     <!--Ondocus-->
     <!--<input type="text" onfocus="this.value='You clicked me!'"/>-->
     <!--<h1 onclick="this.style.color='red'">Click on this text !</h1>-->
-    
+    <!--<form name="myForm"onsubmit="return validateForm()">
+        Name: <input type="text" name="fname">
+        <input type="submit" value="Submit">
+    </form>-->
     <script>
-        /*
+        /*TO GET THE ALET MESSAGE WHEN WE WONT GIVE NAME AND JUST CLICK ON SUBMIT
+            function validateForm(){
+            let x = document.forms["myForm"]["fname"].value;
+            if(x == ""){
+                alert("Name must be filled out");
+            return false;}}
+        /*------------------------------------------------------------------
         let var1=document.createElement("p");
         var1.innerHTML = "This is a newly created paragraph. ";
         //Add element to the container
@@ -44,11 +72,53 @@
     //document.getElementById("clickBox").onmousedown=function() { this.style.backgroundColor="red"};//same <p id="clickBox">This is a paragraph</p>  
     //document.getElementById("clickBox").onmouseup=function() { this.style.backgroundColor="green"};//same <p id="clickBox">This is a paragraph</p>  
 
-    /*
+    /*TO GET THE ALET MESSAGE WHEN WE WONT GIVE NAME AND JUST CLICK ON SUBMIT
     function reverseText(){
         let x=document.getElementById("fname");
         x.value=x.value.split("").reverse().join("");}//<input type="text" id="fname" oninput="reverseText()">
     */
-    </script>
+   //----------------------------------------------------------------------------------------------------------------------
+   /*
+   //Email validation
+   function validateEmail(){
+    let email = document.getElementById("email").value;
+    let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!pattern.test(email)){ alert("Invalid email format");}}
+   */
+   //----------------------------------------------------------------------------------------------------------------------
+   //Number Validation...
+   /*
+   function validateNumber(){
+    let age = document.getElementById("age").value;
+    if(isNaN(age) || age < 1){
+            alert("Please enter a valid number");
+    }
+   }
+    */
+   //-----------------------------------------------------------------------------------------------------------------------
+   //Password Strength Validation 
+   /*
+   function validatePassword(){
+    let password = document.getElementById("password").value;
+    if(password.length < 6){
+        alert("Password must be at least 6 characters long")
+    }
+   }
+    */
+   //------------------------------------------------------------------------------------------------------------------------
+   //REAL-TIME VALIDATION WITH ONINPUT EVENT
+   /*
+   function checkLength(){
+    let user = document.getElementById("username").value;
+    if(user.length < 3){
+        document.getElementById("username").style.borderColor = "red";
+    } 
+    else{
+        document.getElementById("username").style.borderColor = "green";
+    }
+   }
+    */
+   //------------------------------------------------------------------------------------------------------------------------
+   </script>
 </body>
 </html>                                 

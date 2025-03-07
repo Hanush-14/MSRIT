@@ -128,3 +128,62 @@
 2.Add a text field where the user must type "JAVASCRIPT"
     Show crt tick mark if correct(oninput)
     Show incorrect if incorrect when the user click outside(onchange).
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .message {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Type "JAVASCRIPT"</h1>
+
+<input type="text" id="textInput" placeholder="Type here..." oninput="checkInput()" onchange="checkChange()">
+<p id="feedback" class="message"></p>
+<p id="status"></p>
+
+<script>
+  // Function triggered on input (as user types)
+  function checkInput() {
+    var inputField = document.getElementById("textInput");
+    var feedback = document.getElementById("feedback");
+
+    // Check if the user typed the correct word
+    if (inputField.value.toUpperCase() === "JAVASCRIPT") {
+      feedback.textContent = "✔";
+      feedback.className = "X";  // Add correct class (green)
+    } else {
+      feedback.textContent = "";
+    }
+  }
+
+  // Function triggered when the user clicks outside the input field (onchange)
+  function checkChange() {
+    var inputField = document.getElementById("textInput");
+    var status = document.getElementById("status");
+
+    // Check if the user typed the correct word
+    if (inputField.value.toUpperCase() === "JAVASCRIPT") {
+      status.textContent = "Correct!";
+      status.className = "correct";  // Add correct class (green)
+    } else {
+      status.textContent = "X";
+      status.className = "X";  // Add incorrect class (red)
+    }
+  }
+</script>
+
+</body>
+</html>

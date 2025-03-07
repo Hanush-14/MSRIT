@@ -122,3 +122,9 @@
    </script>
 </body>
 </html>                                 
+1.Mouse Event 
+    Display an image that change when the user hover (mouseover) and reverts when they move away(mouseout)
+    Rotate the image 45 degree when clicked (mousedown) and rest when released (mouseup).
+2.Add a text field where the user must type "JAVASCRIPT"
+    Show crt tick mark if correct(oninput)
+    Show incorrect if incorrect when the user click outside(onchange).

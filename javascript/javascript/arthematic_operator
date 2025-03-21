@@ -55,3 +55,73 @@ function cal(operation)
 }
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                    EMbaded js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <b>I am part of the Html document</b>
+    <p id="p1"></p>
+    <br>
+    <i>I am also part of the HTML document,after the result!</i>
+
+    <script>
+        document.getElementById("p1").innerHTML="This came from my script and is now on this page!";
+    </script>
+</body>
+</html>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------accepting user and print-------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user_name=prompt("Enter the username");
+        document.write("hello "+user_name);
+    </script>
+</body>
+</html>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                    add two numbers by getting the input by the user and print the sum in alert
+    <script>
+        let n2=parseInt(prompt("Enter the username"));
+        let n1=parseInt(prompt("Enter seond name :"));
+        let n3=n1+n2;
+        alert(n3);
+    </script>
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                    fibonacci series 
+    <script>
+        let n2=parseInt(prompt("Enter the number"));
+        let i;
+        let fib3,fib1=0,fib2=1;
+        fib3=fib1+fib2;
+        document.write(fib1 +" ");
+        document.write(fib2 +" ");
+        for (i=3;i<=n2;i++)
+        {
+            document.write(fib3 +" ");
+            fib1=fib2;
+            fib2=fib3;
+            fib3=fib1+fib2;
+        }
+    </script>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                            squares
+
+    <script>
+        let n2=parseInt(prompt("Enter the number"));
+        for(let i=1;i<=n2;i++)
+        {
+            document.write(i*i +" ");
+        }
+    </script>

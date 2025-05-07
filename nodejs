@@ -1,13 +1,23 @@
 --------------------------------------------------------------------------------------------------App.js-----------------------------------------------------------------------------------------
-import Counter from './counter'
 
-function App() {
+import Letter from "./new1";
+import { Message, Second ,Order,Image,Btn} from './new';
+
+function App()
+{
   return(
-    <div className="App">
-    <Counter />
+
+    <div>
+            <Message/>
+            <Letter/>
+            <Second/>
+            <Order/>
+            <Image/>
+            <Btn/>
     </div>
   );
 }
+
 
 export default App;
 ------------------------------------------------------------------------------------------------counter.js---------------------------------------------------------------------------------------
@@ -22,3 +32,57 @@ function Counter(){
     );
 }
 export default Counter;
+---------------------------------------------------------------------------- new.jsx-------------------------------------------------------------------
+import React from "react";
+
+function Message()
+{
+    return (
+        <h1>Welcome to js class</h1>
+    )
+}
+
+function Second()
+{
+    return (
+        <h6>This a another function</h6>
+    )
+}
+
+function Order()
+{
+    return (
+        <ol>
+            <li>Java</li>
+            <li>Design and analysis of algorithm</li>
+            <li>Cyber security</li>
+            <li>Full Stack</li>
+            <li>Research Methodology</li>
+            <li>Data Base System</li>
+        </ol>
+    )
+}
+
+function Image() {
+    return (
+      <img
+        src="https://gratisography.com/wp-content/uploads/2025/01/gratisography-dog-vacation-800x525.jpg"
+        width={1000}
+        height={1000}
+        alt="happy"
+      />
+    );
+  }
+  
+
+function Btn() {
+    const handleClick = () => {
+    };
+  
+    return (
+      <button onClick={handleClick}>Submit</button>
+    );
+  }
+  
+export {Message,Second,Order,Image,Btn};
+--------------------------------------------------------------------------------------------------------------------------

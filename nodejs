@@ -86,3 +86,44 @@ function Btn() {
   
 export {Message,Second,Order,Image,Btn};
 --------------------------------------------------------------------------------------------------------------------------
+App.js
+
+import React from "react";
+import WeatherCards from "./Weather";
+import './App.css';
+function App()
+{
+  return(
+
+    <div>
+            <WeatherCards/>
+    </div>
+  );
+}
+
+
+export default App;
+--------------------------------------------------------------------------------------------------------------------------
+Weather.jsx
+import React from "react";
+const Weathercard = () => {
+    const cardStyle = {
+        padding : '15px',
+        borderRadius : '10px',
+        backgroundColor: '#d3f3ff',
+        color : 'red',
+        width : '250px',
+        margin : '10px auto',
+        textAlign : 'center',
+        boxShadow : '0 2px 5px rgba(0,0,0,0.2)',
+    };
+    return (
+        <div style={cardStyle}>
+        <h4>Sunny</h4>
+        <p>Temperature: 28 c</p>
+        <p>Humidity: 40%</p>
+        </div>
+    );
+};
+export default Weathercard;
+

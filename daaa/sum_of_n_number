@@ -1,18 +1,30 @@
-#include<stdio.h>
+// Sum of N elements input given by the user
+#include <stdio.h>
+#include <time.h>
 
-void main()
-{
+int main() {
+    int n, sum = 0;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
 
-int n,i,rem,sum=0;
-printf("Enter the value for n \n");
-scanf("%d",&n);
+    int arr[n];
 
-while(n!=0)
-{
-	rem=n%10;
-	sum=sum+rem;
-	n=n/10;
-}
+    printf("Enter the elements: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
 
-printf("The sum of n number is %d\n",sum);
+    clock_t start = clock();  
+
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+
+    clock_t end = clock();
+
+    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Sum of the elements: %d\n", sum);
+    printf("Time taken to calculate the sum: %f seconds\n", time_taken);
+
+    return 0;
 }

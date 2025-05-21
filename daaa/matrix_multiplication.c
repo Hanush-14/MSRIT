@@ -1,47 +1,63 @@
-#include<stdio.h>
+// Matrix Multiplication and time taken to calculate it
+#include <stdio.h>
+#include <time.h>
 
-void main()
-{
-        int n,m,i,j;
-        printf("enter the size of the matrix \n");
-        scanf("%d%d",&m,&n);
+#define MAX_SIZE 10
 
-        int a[m][n],a1[m][n];
-        printf("enter the 1st matrix elemenets\n");
-        for(i = 0;i< m;i++)
-        {
-                for(j = 0;j <n;j++)
-                {
-                        scanf("%d",&a[i][j]);
-                }
+void matrixMultiplication(int A[MAX_SIZE][MAX_SIZE], int B[MAX_SIZE][MAX_SIZE], int result[MAX_SIZE][MAX_SIZE], int rowsA, int colsA, int colsB) {
+    for (int i = 0; i < rowsA; i++) {
+        for (int j = 0; j < colsB; j++) {
+            result[i][j] = 0;
+            for (int k = 0; k < colsA; k++) {
+                result[i][j] += A[i][k] * B[k][j];
+            }
         }
-        printf("enter the 2nd matrix elemenets\n");
-        for(i = 0;i< m;i++)
-        {
-                for(j=0;j<n;j++)
-                {
-                        scanf("%d",&a1[i][j]);
-                }
-        }
-        int c[m][n];
-        printf("addition of two array elemenets are \n");
-        for(i = 0;i<m;i++)
-        {
-                for(j=0;j<n;j++)
-                {
-			for (int k=0;k<=j;k++)
-			{
-                        	c[i][j] =a[i][k]*a1[k][j];
-                	}
-        	}
-	}
-	for(i = 0;i< m;i++)
-        {
-                for(j = 0;j <n;j++)
-                {
-                        printf("%d",c[i][j]);
-                }
-		printf("\n");
-        }
+    }
+}
 
+void printMatrix(int matrix[MAX_SIZE][MAX_SIZE], int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int A[MAX_SIZE][MAX_SIZE], B[MAX_SIZE][MAX_SIZE], result[MAX_SIZE][MAX_SIZE];
+    int rowsA, colsA, rowsB, colsB;
+    clock_t start, end;
+
+    printf("Enter rows and columns for matrix A: ");
+    scanf("%d %d", &rowsA, &colsA);
+    printf("Enter elements of matrix A:\n");
+    for (int i = 0; i < rowsA; i++) {
+        for (int j = 0; j < colsA; j++) {
+            scanf("%d", &A[i][j]);
+        }
+    }
+
+    printf("Enter rows and columns for matrix B: ");
+    scanf("%d %d", &rowsB, &colsB);
+    if (colsA != rowsB) {
+        printf("Matrix multiplication not possible.\n");
+        return 1;
+    }
+    printf("Enter elements of matrix B:\n");
+    for (int i = 0; i < rowsB; i++) {
+        for (int j = 0; j < colsB; j++) {
+            scanf("%d", &B[i][j]);
+        }
+    }
+
+    start = clock();
+    matrixMultiplication(A, B, result, rowsA, colsA, colsB);
+    end = clock();
+
+    printf("\nMatrix Multiplication Result:\n");
+    printMatrix(result, rowsA, colsB);
+    printf("Time: %.6lf seconds\n", ((double)(end - start)) / CLOCKS_PER_SEC);
+
+    return 0;
 }

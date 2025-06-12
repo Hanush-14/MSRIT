@@ -1,129 +1,360 @@
---------------------------------------------------------------------------------------------------App.js-----------------------------------------------------------------------------------------
+-------
+counter
+import React, { useState } from "react";
 
-import Letter from "./new1";
-import { Message, Second ,Order,Image,Btn} from './new';
+function Counter() {
+  const [count, setCount] = useState(0);
 
-function App()
-{
-  return(
+  const buttonStyle = {
+    padding: 10,
+    margin: 5,
+    backgroundColor: "blue",
+    color: "white",
+    border: "none",
+    borderRadius: 4,
+    cursor: "pointer",
+  };
 
-    <div>
-            <Message/>
-            <Letter/>
-            <Second/>
-            <Order/>
-            <Image/>
-            <Btn/>
+  return (
+    <div style={{ textAlign: "center", marginTop: 50 }}>
+      <div style={{ fontWeight: "bold", fontSize: 24, marginBottom: 20 }}>
+        {count}
+      </div>
+      <button style={buttonStyle} onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+      <button style={buttonStyle} onClick={() => setCount(count - 1)}>
+        Decrease
+      </button>
+      <button
+        style={{ ...buttonStyle, backgroundColor: "red" }}
+        onClick={() => setCount(0)}
+      >
+        Reset
+      </button>
     </div>
   );
 }
 
-
-export default App;
-------------------------------------------------------------------------------------------------counter.js---------------------------------------------------------------------------------------
-import React,{ useState } from 'react';
-function Counter(){
-    const[count,setCount]=useState(0);
-    return(
-        <div>
-            <p>You clicked { count } times</p>
-            <button onClick={()=>setCount(count + 1)}>Click me</button>
-        </div>
-    );
-}
 export default Counter;
----------------------------------------------------------------------------- new.jsx-------------------------------------------------------------------
-import React from "react";
+-----
+change color
+import React, { useState } from "react";
 
-function Message()
-{
-    return (
-        <h1>Welcome to js class</h1>
-    )
-}
+function ColorChanger() {
+  const colors = ["red", "green", "blue"];
+  const [index, setIndex] = useState(0);
 
-function Second()
-{
-    return (
-        <h6>This a another function</h6>
-    )
-}
+  const nextColor = () => {
+    setIndex((index + 1) % colors.length);
+  };
 
-function Order()
-{
-    return (
-        <ol>
-            <li>Java</li>
-            <li>Design and analysis of algorithm</li>
-            <li>Cyber security</li>
-            <li>Full Stack</li>
-            <li>Research Methodology</li>
-            <li>Data Base System</li>
-        </ol>
-    )
-}
-
-function Image() {
-    return (
-      <img
-        src="https://gratisography.com/wp-content/uploads/2025/01/gratisography-dog-vacation-800x525.jpg"
-        width={1000}
-        height={1000}
-        alt="happy"
-      />
-    );
-  }
-  
-
-function Btn() {
-    const handleClick = () => {
-    };
-  
-    return (
-      <button onClick={handleClick}>Submit</button>
-    );
-  }
-  
-export {Message,Second,Order,Image,Btn};
---------------------------------------------------------------------------------------------------------------------------
-App.js
-
-import React from "react";
-import WeatherCards from "./Weather";
-import './App.css';
-function App()
-{
-  return(
-
-    <div>
-            <WeatherCards/>
+  return (
+    <div style={{ textAlign: "center", marginTop: 20 }}>
+      <p>Current Color: {colors[index]}</p>
+      <div
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: colors[index],
+          margin: "0 auto 10px",
+        }}
+      ></div>
+      <button onClick={nextColor}>Change Color</button>
     </div>
   );
 }
 
+export default ColorChanger;
+---
+textcount
+import React, { useState } from 'react';
+
+function App() {
+  const [text, setText] = useState('');
+
+  const clearInput = () => setText('');
+
+  return (
+    <div style={{ padding: 20, fontFamily: 'Arial' }}>
+      <input
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Type something"
+        style={{ padding: 8, width: '100%', marginBottom: 10 }}
+      />
+      <div>Character Count: {text.length}</div>
+      <button onClick={clearInput} style={{ marginTop: 10 }}>
+        Clear
+      </button>
+    </div>
+  );
+}
 
 export default App;
---------------------------------------------------------------------------------------------------------------------------
-Weather.jsx
-import React from "react";
-const Weathercard = () => {
-    const cardStyle = {
-        padding : '15px',
-        borderRadius : '10px',
-        backgroundColor: '#d3f3ff',
-        color : 'red',
-        width : '250px',
-        margin : '10px auto',
-        textAlign : 'center',
-        boxShadow : '0 2px 5px rgba(0,0,0,0.2)',
-    };
+-----
+prop validation
+import React from 'react';
+import PropTypes from 'prop-types';
+
+class App extends React.Component {
+  render() {
+    const { propArray, propBool, propFunc, propNumber, propString } = this.props;
     return (
-        <div style={cardStyle}>
-        <h4>Sunny</h4>
-        <p>Temperature: 28 c</p>
-        <p>Humidity: 40%</p>
-        </div>
+      <div>
+        <h2>Simple ReactJS Props validation example</h2>
+        <table border="1" cellPadding="5">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Value</th>
+              <th>Valid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Array</td>
+              <td>{String(propArray)}</td>
+              <td>{Array.isArray(propArray) ? "true" : "false"}</td>
+            </tr>
+            <tr>
+              <td>Boolean</td>
+              <td>{String(propBool)}</td>
+              <td>{typeof propBool === 'boolean' ? "true" : "false"}</td>
+            </tr>
+            <tr>
+              <td>Function</td>
+              <td>{typeof propFunc === 'function' ? propFunc(5) : String(propFunc)}</td>
+              <td>{typeof propFunc === 'function' ? "true" : "false"}</td>
+            </tr>
+            <tr>
+              <td>Number</td>
+              <td>{propNumber}</td>
+              <td>{typeof propNumber === 'number' ? "true" : "false"}</td>
+            </tr>
+            <tr>
+              <td>String</td>
+              <td>{propString}</td>
+              <td>{typeof propString === 'string' ? "true" : "false"}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     );
+  }
+}
+
+App.propTypes = {
+  propArray: PropTypes.array.isRequired,
+  propBool: PropTypes.bool.isRequired,
+  propFunc: PropTypes.func,
+  propNumber: PropTypes.number,
+  propString: PropTypes.string,
 };
-export default Weathercard;
+
+App.defaultProps = {
+  propArray: [1, 2, 3],
+  propBool: true,
+  propFunc: x => x * 10,
+  propNumber: 42,
+  propString: "Hello",
+};
+
+export default App;
+-----
+table in car
+import React from "react";
+
+function VehicleCards() {
+  const vehicles = [
+    { model: "Model S", manufacturer: "Tesla", year: 2020, fuel: "Electric" },
+    { model: "Civic", manufacturer: "Honda", year: 2018, fuel: "Petrol" },
+    { model: "Corolla", manufacturer: "Toyota", year: 2019, fuel: "Petrol" },
+    { model: "Mustang", manufacturer: "Ford", year: 2021, fuel: "Petrol" },
+    { model: "Leaf", manufacturer: "Nissan", year: 2020, fuel: "Electric" },
+  ];
+
+  const containerStyle = {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: 20,
+  };
+
+  const cardStyle = {
+    border: "1px solid #ccc",
+    borderRadius: 8,
+    padding: 15,
+    width: "18%",
+    boxSizing: "border-box",
+    boxShadow: "2px 2px 5px rgba(0,0,0,0.1)",
+    fontFamily: "Arial, sans-serif",
+  };
+
+  const titleStyle = {
+    fontWeight: "bold",
+    marginBottom: 8,
+    fontSize: 18,
+  };
+
+  return (
+    <div style={containerStyle}>
+      {vehicles.map((v, index) => (
+        <div key={index} style={cardStyle}>
+          <div style={titleStyle}>{v.model}</div>
+          <div>Manufacturer: {v.manufacturer}</div>
+          <div>Year: {v.year}</div>
+          <div>Fuel: {v.fuel}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default VehicleCards;
+-----
+
+country
+
+import React from "react";
+//import "./CountryList.css"; // Make sure this CSS file exists
+
+function CountryList() {
+  const countries = [
+    { name: "USA", capital: "Washington, D.C." },
+    { name: "Canada", capital: "Ottawa" },
+    { name: "France", capital: "Paris" },
+    { name: "Japan", capital: "Tokyo" },
+    { name: "Australia", capital: "Canberra" },
+  ];
+
+  return (
+    <div className="country-list-container">
+      <h2>Countries and Capitals</h2>
+      <ul className="country-list">
+        {countries.map((country, index) => (
+          <li key={index} className="country-item">
+            <strong>{country.name}</strong>: {country.capital}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default CountryList;
+----
+
+course
+
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+
+class CourseCard extends Component {
+  render() {
+    const { title, duration, instructor } = this.props;
+
+    return (
+      <div style={{
+        border: "1px solid #ccc",
+        padding: 15,
+        borderRadius: 6,
+        maxWidth: 300,
+        fontFamily: "Arial, sans-serif"
+      }}>
+        <h2>{title}</h2>
+        <p>Duration: {duration} weeks</p>
+        <p>Instructor: {instructor}</p>
+      </div>
+    );
+  }
+}
+
+CourseCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  instructor: PropTypes.string.isRequired,
+};
+
+export default CourseCard;
+
+-----
+restaurant
+import React, { Component } from "react";
+
+class RestaurantList extends Component {
+  state = {
+    restaurants: [
+      {
+        id: 1,
+        name: "Pizza Place",
+        menu: [
+          { id: 101, item: "Margherita" },
+          { id: 102, item: "Pepperoni" },
+        ],
+      },
+      {
+        id: 2,
+        name: "Sushi Bar",
+        menu: [
+          { id: 201, item: "California Roll" },
+          { id: 202, item: "Spicy Tuna Roll" },
+        ],
+      },
+      {
+        id: 3,
+        name: "Burger Joint",
+        menu: [
+          { id: 301, item: "Cheeseburger" },
+          { id: 302, item: "Veggie Burger" },
+        ],
+      },
+    ],
+  };
+
+  render() {
+    return (
+      <div style={{ fontFamily: "Arial, sans-serif", maxWidth: 400, margin: "20px auto" }}>
+        <h2>Restaurants and Menus</h2>
+        <ul>
+          {this.state.restaurants.map((restaurant) => (
+            <li key={restaurant.id} style={{ marginBottom: 15 }}>
+              <strong>{restaurant.name}</strong>
+              <ul>
+                {restaurant.menu.map((menuItem) => (
+                  <li key={menuItem.id}>{menuItem.item}</li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
+
+export default RestaurantList;
+----
+company 
+import React from "react";
+import PropTypes from "prop-types";
+
+function CompanyInfo({ name, industry, employees }) {
+  return (
+    <div style={{ border: "1px solid #ccc", padding: 15, maxWidth: 300, fontFamily: "Arial" }}>
+      <h2>{name}</h2>
+      <p>Industry: {industry}</p>
+      <p>Employees: {employees}</p>
+    </div>
+  );
+}
+
+CompanyInfo.propTypes = {
+  name: PropTypes.string.isRequired,
+  industry: PropTypes.string.isRequired,
+  employees: PropTypes.number.isRequired,
+};
+
+export default CompanyInfo;
+
+
 

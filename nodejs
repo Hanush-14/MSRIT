@@ -357,4 +357,37 @@ CompanyInfo.propTypes = {
 export default CompanyInfo;
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+19/06/2025
+import express from 'express';
+
+const app = express();               // Moved above to avoid usage before declaration
+const port = 3001;
+
+app.use(express.json());            // Middleware to parse JSON
+
+app.get('/message', (req, res) => {
+    res.send('Hello Express');
+});
+
+app.put('/message', (req, res) => {
+    res.send('Hello Express');
+});
+// 🔧 Fixed: 'psot' -> 'post', and correctly accessing the `name` from req.body
+app.post('/message', (req, res) => {
+    const { name } = req.body.name;
+    res.send(`Your name is ${name}`);
+});
+
+app.put('/message', (req, res) => {
+    const { name } = req.body.name; 
+    res.send(`Updated name is ${name}`);
+});
+
+app.delete('/message', (req, res) => {
+    res.send(`Your name is deleted`);
+});
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+});
 

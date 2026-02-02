@@ -1,0 +1,5 @@
+To get the ip address
+nslookup www.msrit.edu
+
+to get the your device info
+nslookup www.msrit.edu
